@@ -1,0 +1,52 @@
+<%- include('../../partials/head.ejs') %>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.4/croppie.css">
+
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h5>Search Result For "<%= searchTerm %>"</h5>
+
+            <% if (posts.length == 0) { %>
+            <p class='text-center text-muted'>Nothing Found</p>
+            <% } else{ %>
+            <% for( let post of posts ) { %>
+            <div class="card card-body">
+                <a href="/explorer/<%= post._id %> " style="color: black;">
+                    <h5><%= post.title %> </h5>
+                    <p><%= truncate(post.body) %> </p>
+                </a>
+            </div>
+            <% } %>
+            <% } %>
+
+            <% if (totalPage > 1) { %>
+            <nav>
+                <ul class="pagination">
+                    <li class="page-item <%= currentPage == 1 ? 'disabled' : '' %> ">
+                        <a class="page-link"
+                            href="<%=`/search?term=${searchTerm}&page=${parseInt(currentPage) - 1}` %> ">Previous</a>
+                    </li>
+
+                    <% for( let index = 1; index <= totalPage ; index++ ) { %>
+                    <li class="page-item <%= currentPage == index ? 'active' : '' %> ">
+                        <a class="page-link" href="<%=`/search?term=${searchTerm}&page=${index}` %> "><%= index %> </a>
+                    </li>
+                    <% } %>
+
+                    <li class="page-item <%= currentPage == totalPage ? 'disabled' : '' %> ">
+                        <a class="page-link"
+                            href="<%=`/search?term=${searchTerm}&page=${parseInt(currentPage) + 1}` %> ">Next</a>
+                    </li>
+                </ul>
+            </nav>
+            <% } %>
+        </div>
+    </div>
+</div>
+
+<%- include('../../partials/footer.ejs') %>
+<script src="/scripts/bookmarks.js"></script>
+
+</body>
+
+</html>

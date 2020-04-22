@@ -1,0 +1,4 @@
+{
+    "mogodb-uri": "MONGODB_URI",
+    "secret": "SECRET_KEY"
+}
