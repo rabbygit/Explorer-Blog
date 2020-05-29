@@ -9,7 +9,7 @@ var path = require('path')
 const setMiddlewares = require('./middleware/middlewares')
 const setRoute = require('./routes/routes')
 
-// playground
+// It's playground.
 const validatorRoute = require('./play/validator')
 
 const app = express()
