@@ -6,9 +6,6 @@ const Profile = require('../models/Profile')
 
 function genDate(days) {
     let date = moment().subtract(days, 'days')
-
-    console.log(date.toDate())
-
     return date.toDate()
 }
 
@@ -113,9 +110,6 @@ exports.singlePostController = async (req, res, next) => {
                     select: 'username profilePics'
                 }
             })
-
-
-        console.log(post.comments[0])
 
         if (!post) {
             let error = new Error('404 page not found');

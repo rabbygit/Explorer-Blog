@@ -30,7 +30,6 @@ exports.commentPostController = async (req, res, next) => {
 
         return res.status(201).json(commentJson)
     } catch (e) {
-        console.log(e)
         return res.status(500).json({
             error: 'Internal Server Error'
         })
@@ -41,8 +40,6 @@ exports.commentPostController = async (req, res, next) => {
 exports.replyCommentPostController = async (req, res, next) => {
     let { commentId } = req.params
     let { body } = req.body;
-
-    console.log(commentId, body)
 
     if (!req.user) {
         return res.status(403).json({
@@ -66,7 +63,6 @@ exports.replyCommentPostController = async (req, res, next) => {
             profilePics: req.user.profilePics
         })
     } catch (e) {
-        console.log(e)
         return res.status(500).json({
             error: 'Internal Server Error'
         })

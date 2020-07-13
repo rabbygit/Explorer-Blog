@@ -1,5 +1,4 @@
 window.onload = function () {
-    console.log("sdkjdcj")
     const bookmarks = document.getElementsByClassName('bookmark');
     [...bookmarks].forEach(bookmark => {
         bookmark.style.cursor = 'pointer'

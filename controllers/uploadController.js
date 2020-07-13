@@ -41,8 +41,6 @@ exports.removeProfilePics = (req, res, next) => {
         let defaultProfilePics = `/uploads/default.png`;
         let currentProfilePics = req.user.profilePics;
 
-        console.log(currentProfilePics)
-
         fs.unlink(`public${currentProfilePics}`, async (err) => {
             let profile = await Profile.findOne({ user: req.user._id });
             if (profile) {
@@ -58,7 +56,7 @@ exports.removeProfilePics = (req, res, next) => {
 
             if (currentProfilePics !== 'uploads/default.png') {
                 fs.unlink(`public${currentProfilePics}`, err => {
-                    if (err) console.log(err)
+                    if (err) throw err
                 })
             }
 
@@ -69,7 +67,6 @@ exports.removeProfilePics = (req, res, next) => {
         })
 
     } catch (error) {
-        console.log(error)
         res.status(500).json({
             message: "Can't remove profile pic"
         })

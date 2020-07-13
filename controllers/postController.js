@@ -21,8 +21,6 @@ exports.createPostPostController = async (req, res, next) => {
     let { title, body, tags } = req.body
     let errors = validationResult(req).formatWith(errorFormatter)
 
-    console.log(errors.mapped())
-
     if (!errors.isEmpty()) {
         return res.render('pages/dashboard/post/create-post', {
             title: 'Create Your Post',

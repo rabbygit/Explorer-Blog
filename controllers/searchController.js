@@ -6,8 +6,6 @@ exports.searchGetController = async (req, res, next) => {
     let currentPage = parseInt(req.query.page) || 1
     let itemPerPage = 2
 
-    console.log(term)
-
     try {
         let posts = await Post.find({ $text: { $search: term } })
             .skip((itemPerPage * currentPage) - itemPerPage)

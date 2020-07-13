@@ -18,7 +18,6 @@ window.onload = function () {
                         commentHolder.insertBefore(commentElement, commentHolder.children[0])
                     })
                     .catch(e => {
-                        console.log(e.message)
                         alert(e.message)
                     })
 
