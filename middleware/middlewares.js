@@ -11,7 +11,7 @@ const setLocals = require('./setLocals');
 
 
 const store = new MongoDBStore({
-    uri: config.get('mogodb-uri'),
+    uri: process.env.SECRET || config.get('mogodb-uri'),
     collection: 'sessions'
 });
 

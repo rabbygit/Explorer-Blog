@@ -1,4 +1,4 @@
-window.onload = function () {
+window.addEventListener('load', function () {
     const commentHolder = document.getElementById('comment-holder')
 
     commentHolder.addEventListener('keypress', function (e) {
@@ -29,7 +29,7 @@ window.onload = function () {
             }
         }
     })
-}
+})
 
 function generateRequest(url, method, body) {
     let headers = new Headers();

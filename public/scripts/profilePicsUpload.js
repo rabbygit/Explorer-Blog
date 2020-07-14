@@ -1,4 +1,4 @@
-window.onload = function () {
+window.addEventListener('load', function () {
 
     let baseCropping = $('#cropped-image').croppie({
         viewport: {
@@ -90,7 +90,7 @@ window.onload = function () {
                 alert("Server Error")
             })
     })
-}
+})
 
 function generateFileName(name) {
     const types = /(.jpeg|.jpg|.png|.gif)/

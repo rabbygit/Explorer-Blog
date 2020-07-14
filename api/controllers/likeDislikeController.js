@@ -5,9 +5,11 @@ exports.likeGetController = async (req, res, next) => {
     let userId = req.user._id
     let liked = null
 
+    console.log(postId)
+
     if (!req.user) {
         return res.status(403).json({
-            error: 'You are not allowed to comment'
+            error: 'You are not allowed to like'
         })
     }
 

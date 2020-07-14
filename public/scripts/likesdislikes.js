@@ -1,4 +1,4 @@
-window.onload = function () {
+window.addEventListener('load',function () {
     const likesBtn = document.getElementById('likesBtn')
     const dislikesBtn = this.document.getElementById('dislikesBtn')
 
@@ -39,7 +39,7 @@ window.onload = function () {
     })
 
 
-}
+})
 
 function reqLikeDislike(type, postId) {
     let headers = new Headers();

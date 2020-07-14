@@ -1,4 +1,4 @@
-window.onload = function () {
+window.addEventListener('load',function () {
     const comment = document.getElementById('comment')
     const commentHolder = document.getElementById('comment-holder')
 
@@ -56,7 +56,7 @@ window.onload = function () {
             }
         }
     })
-}
+})
 
 function generateRequest(url, method, body) {
     let headers = new Headers();

@@ -130,13 +130,6 @@ exports.logoutController = (req, res, next) => {
     })
 }
 
-// try {
-//     let error = new Error("Server crashed!!!!")
-//     error.status = 404 
-// } catch (error) {
-//     next(error)
-// }
-
 exports.changePasswordGetController = (req, res, next) => {
     res.render('pages/auth/changePassword', {
         title: 'Change Password',

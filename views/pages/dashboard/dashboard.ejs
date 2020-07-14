@@ -11,12 +11,12 @@
                     <h5>My recently created posts</h5>
                     <div class="row">
                         <% if (posts.length == 0) { %>
-                        <p class="text-center text-muted">
-                            There is no post available now
+                        <p style="color:red" class="text-center ml-3 mt-3">
+                            There is no post available now.
                         </p>
                         <% } else {%>
                         <% for( let post of posts ) { %>
-                        <div class="col-sm-3 m-2 card">
+                        <div class="col-sm-3 m-3 card">
                             <% if (post.thumbnail) { %>
                             <img src="<%= post.thumbnail %> " alt="<%= post.title %> " class='card-img-top mt-3'>
                             <% } %>
@@ -36,7 +36,7 @@
                     <h5>My recent bookmark posts</h5>
                     <div class="row">
                         <% if (bookmarks.length == 0) { %>
-                        <p class="text-center text-muted">
+                        <p style="color:red" class="text-center ml-3 mt-3">
                             There is no post available now
                         </p>
                         <% } else {%>

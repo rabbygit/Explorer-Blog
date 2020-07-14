@@ -14,6 +14,18 @@ const validatorRoute = require('./play/validator')
 
 const app = express()
 
+// Disabling console.log while application in production
+
+var DEBUG_MODE = app.get("env") == "production" ? false : true; // Set this value to false for production
+
+if (typeof (console) === 'undefined') {
+    console = {}
+}
+
+if (!DEBUG_MODE || typeof (console.log) === 'undefined') {
+    console.log = console.error = console.info = console.debug = console.warn = console.trace = console.dir = console.dirxml = console.group = console.groupEnd = console.time = console.timeEnd = console.assert = console.profile = function () { };
+}
+
 // Set up View engine
 app.set('view engine', 'ejs')
 app.set('views', 'views')
@@ -41,9 +53,10 @@ app.use((error, req, res, next) => {
 })
 
 const PORT = process.env.PORT || 8080;
+const DB_URL = process.env.MONGODB_URI || config.get('mogodb-uri')
 
 mongoose.
-    connect(config.get('mogodb-uri'),
+    connect(DB_URL,
         { useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false, autoIndex: false })
     .then(() => {
         console.log(chalk.green(`Database connected`))
@@ -52,7 +65,7 @@ mongoose.
             console.log(chalk.green.inverse(`Server is listening on ${PORT}`))
         })
     }).catch(e => {
-        return console.log(e)
+        return console.log(e.message)
     })
 
 

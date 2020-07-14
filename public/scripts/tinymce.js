@@ -1,4 +1,4 @@
-window.onload = function () {
+window.addEventListener('load', function () {
     tinymce.init({
         selector: 'textarea#tiny-mce-post-body',
         height: 300,
@@ -34,4 +34,4 @@ window.onload = function () {
                 .catch(() => failure('Http Error'))
         }
     });
-}
+})
